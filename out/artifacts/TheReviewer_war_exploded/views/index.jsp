@@ -1,0 +1,81 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Student
+  Date: 04/08/2019
+  Time: 02:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<html>
+    <%--Head start--%>
+    <c:set var="pageTitle" scope="request" value="Index"/>
+    <jsp:include page="inc/head.jsp"></jsp:include>
+    <%--Head end--%>
+
+    <%--Body start--%>
+    <body>
+        <%--Start header--%>
+        <jsp:include flush="true" page="inc/header.jsp"></jsp:include>
+        <%--End header--%>
+
+        <%--Start main--%>
+        <main class="bg-light  pt-5">
+            <div class="container-fluid">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1 class="text-center mb-3">Check vulnerabilities in your code with TheReviewer</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-lg-8">
+                                <h3 class="card-subtitle text-muted mb-3">Paste your code below for review</h3>
+                                <form>
+                                    <div class="form-group shadow-textarea">
+                                        <textarea class="form-control z-depth-1" rows="10" placeholder="Paste your code here..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                    <span class="text-muted"> Or </span>
+                                    <a href="#" class="btn btn-outline-dark" data-toggle="modal" data-target="#uploadCodeModal">Upload file</a>
+                                </form>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12">
+                                <h3 class="card-subtitle text-muted  mb-3">Your code reviews</h3>
+                                <div class="code-reviews">
+                                <c:choose>
+                                    <c:when test="${1 == 2}">
+                                            <img src="../images/no_code.png" alt="No code reviews"
+                                                 title="No code reviews" class="img-thumbnail">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Code review 1</li>
+                                            <li class="list-group-item">Code review 2</li>
+                                            <li class="list-group-item">Code review 3</li>
+                                            <li class="list-group-item">Code review 4</li>
+                                        </ul>
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%--End main--%>
+
+        <%--Start footer--%>
+        <jsp:include flush="true" page="inc/footer.jsp"></jsp:include>
+        <%--End footer--%>
+
+        <%--Modals--%>
+        <jsp:include flush="true" page="editProfile.jsp"></jsp:include>
+        <jsp:include flush="true" page="deleteAccount.jsp"></jsp:include>
+        <jsp:include flush="true" page="register.jsp"></jsp:include>
+        <jsp:include flush="true" page="login.jsp"></jsp:include>
+        <jsp:include flush="true" page="uploadCode.jsp"></jsp:include>
+        <%--End modals--%>
+    </body>
+    <%--Body end--%>
+</html>
