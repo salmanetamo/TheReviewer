@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Student
@@ -14,8 +15,41 @@
     <!-- Copyright -->
 
     <%-- Scripts --%>
-    <script type="text/javascript" src="../../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../../js/popper.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap.js"></script>
     <script type="text/javascript" src="../../js/script.js"></script>
+    <c:if test="${registering != null}">
+        <c:if test="${registering == true}">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#registerModalTrigger').click();
+                });
+            </script>
+        </c:if>
+    </c:if>
+    <c:if test="${loggingIn != null}">
+        <c:if test="${loggingIn == true}">
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#loginModalTrigger').click();
+                });
+            </script>
+        </c:if>
+    </c:if>
+    <c:if test="${editingProfile != null}">
+        <c:if test="${editingProfile == true}">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#editProfileModalTrigger').click();
+                });
+            </script>
+        </c:if>
+    </c:if>
+    <c:if test="${deleteAccount != null}">
+        <c:if test="${deleteAccount == true}">
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#deleteAccountModalTrigger').click();
+                });
+            </script>
+        </c:if>
+    </c:if>
 </footer>

@@ -14,7 +14,11 @@ h3 {
     font-weight: 300 !important;
 }
 
+small{
+    font-size: 0.6em !important;
+}
+
 .code-reviews img {
-    width: 80%;
+    width: 100%;
     height: auto;
 }

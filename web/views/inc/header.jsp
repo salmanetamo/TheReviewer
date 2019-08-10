@@ -24,25 +24,25 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <c:choose>
-                    <c:when test="${1 == 2}">
+                    <c:when test="${sessionScope.user == null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal" id="registerModalTrigger">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal" id="loginModalTrigger">Login</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Salmane Tamo
+                                ${sessionScope.user.getName()}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Logout</a>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfileModal">Edit profile</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfileModal" id="editProfileModalTrigger">Edit profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#deleteAccountModal">Delete account</a>
+                                <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#deleteAccountModal" id="deleteAccountModalTrigger">Delete account</a>
                             </div>
                         </li>
                     </c:otherwise>

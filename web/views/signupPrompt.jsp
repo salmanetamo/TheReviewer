@@ -7,26 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Modal -->
-<div class="modal fade" id="uploadCodeModal" tabindex="-1" role="dialog" aria-labelledby="uploadCodeModalLabel" aria-hidden="true">
+<div class="modal fade" id="signupPromptModal" tabindex="-1" role="dialog" aria-labelledby="signupPromptModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="uploadCodeModalLabel">Upload code for review</h5>
+                <h5 class="modal-title" id="signupPromptModalLabel">Sign up Required</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="upload-code-form">
-                    <div class="form-group">
-                        <label for="file">Upload file</label>
-                        <input type="file" class="form-control" id="file" required>
-                    </div>
-                </form>
+                <p>You need to sign up before you can use TheReviewer.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark" id="upload-code-submit">Submit</button>
+                <a href="/register" class="btn btn-danger btn-dark" >Sign up</a>
             </div>
         </div>
     </div>

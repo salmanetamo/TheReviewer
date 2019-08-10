@@ -22,6 +22,36 @@
         <%--Start main--%>
         <main class="bg-light  pt-5">
             <div class="container-fluid">
+                <%--Start alerts--%>
+                <c:if test="${errors != null}">
+                    <c:if test="${errors.size() != 0}">
+                        <c:forEach items="${errors}" var="error">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                ${error}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                </c:if>
+                <c:if test="${success != null}">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            ${success}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:if>
+                <c:if test="${info != null}">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            ${info}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:if>
+                <%--End alerts--%>
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="card-title">
@@ -30,20 +60,27 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-12 col-lg-8">
                                 <h3 class="card-subtitle text-muted mb-3">Paste your code below for review</h3>
-                                <form>
+                                <form method="post" action="/review-code">
                                     <div class="form-group shadow-textarea">
-                                        <textarea class="form-control z-depth-1" rows="10" placeholder="Paste your code here..."></textarea>
+                                        <textarea class="form-control z-depth-1" rows="13" name="input"
+                                                  placeholder="Paste your code here..."></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-dark">Submit</button>
-                                    <span class="text-muted"> Or </span>
-                                    <a href="#" class="btn btn-outline-dark" data-toggle="modal" data-target="#uploadCodeModal">Upload file</a>
+                                    <c:choose>
+                                        <c:when test="${1 == 1}">
+                                            <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#signupPromptModal">Submit</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button type="submit" class="btn btn-dark">Submit</button>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </form>
                             </div>
                             <div class="col-md-4 col-lg-4 col-sm-12">
                                 <h3 class="card-subtitle text-muted  mb-3">Your code reviews</h3>
                                 <div class="code-reviews">
                                 <c:choose>
-                                    <c:when test="${1 == 2}">
+                                    <c:when test="${1 == 1}">
                                             <img src="../images/no_code.png" alt="No code reviews"
                                                  title="No code reviews" class="img-thumbnail">
                                     </c:when>
@@ -74,7 +111,7 @@
         <jsp:include flush="true" page="deleteAccount.jsp"></jsp:include>
         <jsp:include flush="true" page="register.jsp"></jsp:include>
         <jsp:include flush="true" page="login.jsp"></jsp:include>
-        <jsp:include flush="true" page="uploadCode.jsp"></jsp:include>
+        <jsp:include flush="true" page="signupPrompt.jsp"></jsp:include>
         <%--End modals--%>
     </body>
     <%--Body end--%>
